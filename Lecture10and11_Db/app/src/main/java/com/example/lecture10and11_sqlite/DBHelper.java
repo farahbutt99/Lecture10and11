@@ -60,12 +60,20 @@ public class DBHelper extends SQLiteOpenHelper {
                 String custName= cursor.getString(1);
                 int custAge= cursor.getInt(2);
                 boolean isActive= cursor.getInt(3)==1 ?true:false;
-                CustomerModel customerModel = new CustomerModel(custName,custAge,isActive,1);
+                int id= cursor.getInt(4);
+                CustomerModel customerModel = new CustomerModel(custName,custAge,isActive,id);
                 myList.add(customerModel);
             }while(cursor.moveToNext());
         }
         cursor.close();
         DB.close();
         return myList;
+    }
+    public boolean deleteCustomer(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result=db.delete(CUST_TABLE,"CustomerID = ?",new String[] {id});
+        db.close();
+        if (result== -1) { return false; }
+        else{return true;}
     }
 }
