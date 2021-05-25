@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
                 DBHelper dbHelper = new DBHelper(MainActivity.this);
-                boolean b = dbHelper.addCustomer(customerModel);
+                //boolean b = dbHelper.addCustomer(customerModel);
                // String id = String.valueOf((customerModel.getId()));
                //boolean result2 = dbHelper.deleteCustomer(id);
                 RefreshData();
