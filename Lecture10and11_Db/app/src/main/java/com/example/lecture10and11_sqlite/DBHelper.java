@@ -48,25 +48,4 @@ public class DBHelper extends SQLiteOpenHelper {
         else{return true;}
     }
 
-    public List<CustomerModel> getAllRecords()
-    {
-        List<CustomerModel> myList= new ArrayList<CustomerModel>();
-        String query = "SELECT * FROM "+CUST_TABLE;
-        SQLiteDatabase DB = this.getReadableDatabase();
-        Cursor cursor = DB.rawQuery(query,null);
-        if(cursor.moveToFirst())
-        {
-            do{
-                // int custId= cursor.getInt(4);
-                String custName= cursor.getString(1);
-                int custAge= cursor.getInt(2);
-                boolean isActive= cursor.getInt(3)==1 ?true:false;
-                CustomerModel customerModel = new CustomerModel(custName,custAge,isActive,1);
-                myList.add(customerModel);
-            }while(cursor.moveToNext());
-        }
-        cursor.close();
-        DB.close();
-        return myList;
-    }
 }
