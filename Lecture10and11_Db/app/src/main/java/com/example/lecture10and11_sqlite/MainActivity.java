@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 DBHelper dbHelper = new DBHelper(MainActivity.this);
                 //boolean b = dbHelper.addCustomer(customerModel);
-               // String id = String.valueOf((customerModel.getId()));
-               //boolean result2 = dbHelper.deleteCustomer(id);
+                String id = String.valueOf((customerModel.getId()));
+               boolean result2 = dbHelper.deleteCustomer(id);
                 RefreshData();
             }
         });
